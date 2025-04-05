@@ -1,0 +1,148 @@
+/* SubjectList.css */
+
+/* Base styles */
+.subject-list-container {
+            min-height: 100vh;
+            width: 100%;
+            padding: 2rem;
+            box-sizing: border-box;
+            background-color: #f5f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          }
+          
+          /* Header */
+          .subject-list-header {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.5rem;
+          }
+          
+          .subject-list-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #3f51b5;
+          }
+          
+          /* Messages */
+          .loading-message,
+          .error-message,
+          .no-subjects-message {
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.2rem;
+            color: #333;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+          }
+          
+          .error-message {
+            color: #d32f2f;
+            background-color: #fde8e8;
+            border-left: 4px solid #d32f2f;
+            border-radius: 4px;
+          }
+          
+          .no-subjects-message {
+            color: #666;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+          }
+          
+          /* Subject grid */
+          .subject-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+          }
+          
+          /* Subject cards */
+          .subject-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-top: 4px solid #3f51b5;
+          }
+          
+          .subject-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-top-color: #303f9f;
+          }
+          
+          .subject-card h3 {
+            color: #3f51b5;
+            margin: 0 0 1rem 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+          }
+          
+          .subject-card p {
+            color: #555;
+            margin: 0.5rem 0;
+            font-size: 0.95rem;
+          }
+          
+          .subject-card p:last-child {
+            color: #888;
+            font-size: 0.85rem;
+          }
+          
+          /* Responsive adjustments */
+          @media (max-width: 768px) {
+            .subject-list-container {
+              padding: 1.5rem;
+            }
+          
+            .subject-list-header {
+              font-size: 1.8rem;
+              margin-bottom: 1.5rem;
+            }
+          
+            .subject-list {
+              grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+          }
+          
+          @media (max-width: 480px) {
+            .subject-list-container {
+              padding: 1rem;
+            }
+          
+            .subject-list-header {
+              font-size: 1.5rem;
+            }
+          
+            .subject-list {
+              grid-template-columns: 1fr;
+            }
+          
+            .subject-card {
+              padding: 1.2rem;
+            }
+          }
+          
+          /* Animation for loading state */
+          @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+          }
+          
+          .loading-message {
+            animation: pulse 1.5s infinite ease-in-out;
+          }
